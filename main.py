@@ -1,13 +1,15 @@
-def check_capacity_car(is_ready_car: bool, capacity: int, requested_passengers: int) -> bool:
+def check_capacity_car(is_ready_car: bool, capacity: int,
+                       requested_passengers: int) -> bool:
     return ((capacity >= requested_passengers) and (requested_passengers > 0) and (is_ready_car))
 
-def calculate_trip_cost(distance: float, rate_for_km: float, is_cargo: bool, is_urgent: bool):
+def calculate_trip_cost(distance: float, rate_for_km: float, 
+                        is_cargo: bool, is_urgent: bool):
 
     base_sum = distance * rate_for_km
 
     if is_cargo and is_urgent:
         base_sum *= 2
-    elif is_cargo and not is_urgent :
+    elif is_cargo and not is_urgent:
         base_sum *= 1.5
     elif not is_cargo and is_urgent:
         base_sum *= 1.3
@@ -23,7 +25,7 @@ def calculation_travel_time(distance: float, avg_speed_kmh: float, has_trafic: b
 
     return f"Время пути составит {int(base_time // 3600)} ч. {int((base_time % 3600) / 60)} мин."
 
-    
+
 def main():
     route_name = "Москва - Тверь"
     distance = 340.0
